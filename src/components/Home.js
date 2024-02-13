@@ -1,7 +1,10 @@
 import React from "react";
+import { ContextData } from "../App";
 
 export default function Home() {
-    return <h2>Home</h2>;
+    const data = React.useContext(ContextData);
+    console.log('Home Data', data)
+    return <h2>Home - {data.name}</h2>;
 }
 
 

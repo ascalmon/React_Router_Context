@@ -4,8 +4,8 @@ import { Home, About, Users } from "./components";
 
 const data = {
   name: " Text context react router v6",
-  onClick: () => {
-    console.log("this event onclick from context");
+  onClick: (msg) => {
+    console.log("this event onclick from context", msg);
   }
 };
 
@@ -30,16 +30,13 @@ export default function App() {
         </nav>
 
         <Routes>
-          <Route
-            path="/about"
-            element={
-              <ContextData.Provider value={data}>
-                <About />
-              </ContextData.Provider>
-            }
-          />
-          <Route path="/users" element={<Users />} />
-          <Route path="/" element={<Home />} />
+
+
+          <Route path="/about" element={<ContextData.Provider value={data}><About /></ContextData.Provider>} />
+          <Route path="/users" element={<ContextData.Provider value={data}><Users /></ContextData.Provider>} />
+          <Route path="/" element={<ContextData.Provider value={data}><Home /></ContextData.Provider>} />
+
+
         </Routes>
       </div>
     </BrowserRouter>
